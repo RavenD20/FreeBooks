@@ -1,0 +1,65 @@
+﻿@model IEnumerable<CommunityProj.Models.Book>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Donate", "Create")
+  
+<p>
+<p>
+    @using (Html.BeginForm("Index", "Books", FormMethod.Get))
+    {
+    <p>
+        Info:  @Html.TextBox("SearchString")<br />
+        <Input type="submit" value="Search" />
+       @Html.RadioButton("searchby", "Title", true)<text>Title</text>
+        @Html.RadioButton("searchby", "Author")<text>Author</text>
+        @Html.RadioButton("searchby", "ISBN")<text>ISBN</text><br />
+
+    </p>
+    }
+    </p>
+    <p></p>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ISBN)
+            </th>
+            <th>
+
+            </th>
+            @if (Model.Count() == 0)
+            {
+                <td> Book not found.</td>
+            }
+        </tr>
+
+        @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Author)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ISBN)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                    @Html.ActionLink("Reserve", "ReserveBooks", new { id = item.ID })
+                </td>
+            </tr>
+        }
+
+    </table>

@@ -1,0 +1,97 @@
+﻿
+@model CommunityProj.Models.AskBook
+
+
+@{
+    ViewBag.Title = "AskBook";
+
+
+}
+
+@*, FormMethod.Post*@
+    @using (Html.BeginForm("RequestBook", "AskBook"))
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-group">
+            <section class="form-group ">
+                <p>
+                </p>
+
+                @Html.LabelFor(Model => Model.FirstName)
+                @Html.TextBoxFor(Model => Model.FirstName)
+
+                <p></p>
+                @Html.LabelFor(Model => Model.BookTitle)
+                @Html.TextBoxFor(Model => Model.BookTitle)
+
+            </section>
+        </div>
+
+            <div class="col-md-10">
+
+                <input type="submit" value="Submit" href="/AskBook/RequestBook"/>
+              
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+            }
+
+
+
+            @*<form action="/Books/RequestBook">
+                <p>First Name:<input type="text" name="First" /></p>
+                <p>Last Name:<input type="text" name="Last" /></p>
+                <p>Book Name:<input type="text" name="Title" /></p>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            @*@ViewBag.id1
+
+                <p>Name: @Html.TextBox("FirstName")<p/>
+
+                <p>Phone#: @Html.TextBox("Phone#")</p>
+
+                <p>BookName: @Html.TextBox("BookName")<p/>
+
+                 <p> Email: @Html.TextBox("Email")</p>*@
+            @*<div class="form-group">
+
+                <div class="col-md-offset-2 col-md-10">*@
+
+            @* </a><a class="btn btn-default" href="/Books/RequestBook">Request*@
+            @*</form>*@
+            @*</div>*@
+            @*</div>*@
+
+
+            @*</div>*@
+
+            @*</div>*@
+
+
+
+            @section Scripts {
+                @Scripts.Render("~/bundles/jqueryval")
+            }

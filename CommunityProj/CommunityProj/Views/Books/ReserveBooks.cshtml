@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CommunityProj.Models.Book>
+
+@{
+    ViewBag.Title = "ReserveBooks";
+}
+
+<h2>ReserveBook</h2>
+
+<div class="form-group">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+        <div class="col-md-10">
+            @ViewBag.Id
+            FirstName: @Html.TextBox("FirstName")
+            <br />
+            <br />
+            LastName: @Html.TextBox("LastName")
+            <br />
+            <br />
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <a class="btn btn-default" href="/Books/ReserveInstruct">Reserve</a>
+
+                </div>
+            </div>
+            
+            
+                @Html.ActionLink("Reserve", "ReserveInstruct")
+                <br />
+                <br />
+
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+}
+</div>
+
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
